@@ -49,6 +49,9 @@ SAMPLE_INTENT_REQUEST = """{
         "excitement": {
           "name": "level",
           "value": 10
+        },
+        "Animal": {
+          "name": "Animal"
         }
       }
     }

@@ -156,7 +156,9 @@ class RequestBody(Body):
                 for slot_name, slot in six.iteritems(intent['slots']):
                     self.request.intent.slots[slot_name] = Slot()
                     self.request.intent.slots[slot_name].name = slot['name']
-                    self.request.intent.slots[slot_name].value = slot['value']
+                    # based on experience value may not exist, so will default to None
+                    # as a JSON property with a null value can be omitted (i.e. it is optional)
+                    self.request.intent.slots[slot_name].value = slot.get('value', None)
 
         # session ended request
         elif request['type'] == 'SessionEndedRequest':

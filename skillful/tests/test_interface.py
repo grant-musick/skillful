@@ -155,6 +155,11 @@ class TestRequestBody(unittest.TestCase):
         self.assertEqual(actual, 'level')
         actual = self.request_body.request.intent.slots['excitement'].value
         self.assertEqual(actual, 10)
+        actual = self.request_body.request.intent.slots['Animal'].name
+        self.assertEqual(actual, 'Animal')
+        actual = self.request_body.request.intent.slots['Animal'].value
+        self.assertIsNone(actual)
+
 
     def test_parse_session_ended_request(self):
         """Test parse method for session ended request."""
